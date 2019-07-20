@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import cns from "@sindresorhus/class-names";
+
 // import { Link } from "react-router-dom";
 
 const routes = [
@@ -9,6 +11,16 @@ const routes = [
 ];
 
 const Navbar = () => {
+  const [navState, setNavState] = useState(false);
+  const toggleNavState = event => {
+    event.preventDefault();
+    setNavState(!navState);
+  };
+
+  const activeClass = { "is-active": navState };
+  const burgerClass = cns("navbar-burger", "burger", activeClass);
+  const navMenuClass = cns("navbar-menu", "has-text-centered", activeClass);
+
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -16,8 +28,19 @@ const Navbar = () => {
         <a href="/" className="navbar-item">
           <b>Coffee Store</b>
         </a>
+        <a
+          role="button"
+          className={burgerClass}
+          onClick={toggleNavState}
+          onKeyPress={toggleNavState}
+          tabIndex={0}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </a>
       </div>
-      <div className="navbar-menu">
+      <div className={navMenuClass}>
         <div className="navbar-end">
           {routes.map(({ name, route }) => (
             <a
