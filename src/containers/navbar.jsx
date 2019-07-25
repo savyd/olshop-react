@@ -3,14 +3,7 @@ import cns from "@sindresorhus/class-names";
 
 // import { Link } from "react-router-dom";
 
-const routes = [
-  { name: "Store", route: "/" },
-  { name: "Catagorie", route: "/catagorie" },
-  { name: "Product", route: "/product" },
-  { name: "About", route: "/about" }
-];
-
-const Navbar = () => {
+const Navbar = ({routes}) => {
   const [navState, setNavState] = useState(false);
   const toggleNavState = event => {
     event.preventDefault();

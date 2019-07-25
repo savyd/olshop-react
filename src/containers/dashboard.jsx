@@ -4,13 +4,12 @@ import Navbar from "../containers/navbar";
 import Footer from "../containers/footer";
 
 const routes = [
-  { name: "Store", route: "/" },
-  { name: "Catagorie", route: "/catagorie" },
-  { name: "Product", route: "/product" },
-  { name: "About", route: "/about" }
+  { name: "Dashboard", route: "/dashboard" },
+  { name: "Order", route: "/dashboard/order" },
+  { name: "Product Edit", route: "/dashboard/product" }
 ];
 
-const Layout = props => {
+const Dashboard = ({ children }) => {
   return (
     <>
       <section className="hero">
@@ -18,7 +17,7 @@ const Layout = props => {
           <Navbar routes={routes} />
         </div>
         <div className="hero-body">
-          <div className="container">{props.children}</div>
+          <div className="container">{children}</div>
         </div>
         <div className="hero-foot">
           <Footer />
@@ -28,4 +27,4 @@ const Layout = props => {
   );
 };
 
-export default Layout;
+export default Dashboard;

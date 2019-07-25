@@ -1,8 +1,8 @@
 import React from "react";
 
-import SEO from "../components/seo";
-import Card from "../components/card";
-import Layout from "../containers/layout";
+import SEO from "../../components/seo";
+import Card from "../../components/card";
+import Layout from "../../containers/layout";
 
 const Store = () => {
   return (
@@ -24,7 +24,7 @@ const Store = () => {
               </div>
             </article>
           </div>
-          <div className="tile is-parent is-8">
+          <div className="tile is-parent">
             <article className="tile is-child notification is-warning">
               <p className="title">Main column</p>
               <p className="subtitle">With some content</p>
